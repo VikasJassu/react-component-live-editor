@@ -1,0 +1,158 @@
+.preview-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.preview-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e1e5e9;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+}
+
+.preview-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.preview-content {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+.preview-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #8c959f;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e1e5e9;
+  border-top: 2px solid #0969da;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.preview-error {
+  padding: 16px;
+  background: #fff8f8;
+  border: 1px solid #ffccd7;
+  border-radius: 6px;
+  color: #d1242f;
+}
+
+.preview-error h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.preview-error p {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.error-location {
+  font-size: 12px;
+  color: #8c959f;
+  font-style: italic;
+}
+
+.preview-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #8c959f;
+  text-align: center;
+}
+
+.preview-empty p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.component-container {
+  min-height: 100px;
+  padding: 8px;
+  border: 1px dashed #e1e5e9;
+  border-radius: 4px;
+  background: #fafbfc;
+  cursor: pointer;
+}
+
+/* Element selection styles */
+.component-container * {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.component-container *:hover {
+  outline: 2px solid #0969da;
+  outline-offset: 1px;
+  background-color: rgba(9, 105, 218, 0.1) !important;
+}
+
+.component-container .selected-element {
+  outline: 2px solid #d1242f !important;
+  outline-offset: 1px;
+  background-color: rgba(209, 36, 47, 0.1) !important;
+}
+
+.component-container .selected-element:hover {
+  outline: 2px solid #d1242f !important;
+}
+
+.error-boundary {
+  padding: 16px;
+  background: #fff8f8;
+  border: 1px solid #ffccd7;
+  border-radius: 6px;
+  color: #d1242f;
+}
+
+.error-boundary h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.error-boundary p {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+}
+
+.retry-button {
+  background: #d1242f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background: #b91c1c;
+}

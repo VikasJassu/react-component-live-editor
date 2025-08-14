@@ -1,0 +1,22 @@
+{
+  "name": "react-live-inspector-backend-simple",
+  "version": "1.0.0",
+  "description": "Simple backend for React Live Inspector",
+  "main": "start-simple.js",
+  "scripts": {
+    "start": "node start-simple.js",
+    "dev": "node start-simple.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "keywords": [
+    "react",
+    "jsx",
+    "inspector",
+    "api"
+  ],
+  "author": "React Live Inspector Team",
+  "license": "MIT"
+}
