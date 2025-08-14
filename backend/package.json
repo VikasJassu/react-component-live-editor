@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest"
+    "build": "echo 'No build step required for Node.js backend' && exit 0",
+    "build:check": "node -c src/server.js && echo 'Syntax check passed'",
+    "test": "jest",
+    "lint": "echo 'Add ESLint for linting' && exit 0"
   },
   "dependencies": {
     "express": "^4.18.2",
