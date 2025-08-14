@@ -500,5 +500,152 @@
     "description": "Created with React Live Inspector",
     "createdAt": "2025-08-14T07:21:04.740Z",
     "updatedAt": "2025-08-14T07:21:04.740Z"
+  },
+  {
+    "id": "85c735aa-f482-4cda-8019-d95039f8c466",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#d73619'}}>React Counter update</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#0c6e37'}}>React Counter update</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "#d73619"
+        },
+        "textContent": "React Counter update"
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T07:51:08.175Z",
+    "updatedAt": "2025-08-14T07:51:47.219Z"
+  },
+  {
+    "id": "77b3f3ca-68eb-4962-b0a1-079fb79a8940",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'rgb(110, 110, 100)'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'blue'}}>React Counter</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "rgb(110, 110, 100)"
+        },
+        "textContent": "React Counter new"
+      }
+    },
+    "title": "React Component",
+    "description": "Created with React Live Inspector",
+    "createdAt": "2025-08-14T07:53:24.537Z",
+    "updatedAt": "2025-08-14T07:53:24.537Z"
+  },
+  {
+    "id": "f5d3a249-84b3-450a-84da-b0e74fe6ca8f",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'blue'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'blue'}}>React Counter</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {},
+        "textContent": "React Counter new"
+      }
+    },
+    "title": "React Component",
+    "description": "Created with React Live Inspector",
+    "createdAt": "2025-08-14T07:56:55.785Z",
+    "updatedAt": "2025-08-14T07:56:55.785Z"
+  },
+  {
+    "id": "164395a7-c1e1-4f45-a5f1-13cd3c8be9ac",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#117b0a'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'blue'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "#117b0a"
+        },
+        "textContent": "React Counter new"
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T08:00:02.460Z",
+    "updatedAt": "2025-08-14T08:00:10.333Z"
+  },
+  {
+    "id": "036afaca-a1ca-443f-b674-c5eb7c7cb740",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#347c0e'}}>React Counter update</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#347c0e'}}>React Counter mew</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "#347c0e"
+        },
+        "textContent": "React Counter update"
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T08:01:03.003Z",
+    "updatedAt": "2025-08-14T08:01:13.471Z"
+  },
+  {
+    "id": "926137e2-cd3c-46d5-9213-d98879d71aae",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#d31d41'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#195908'}}>React Counter new</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "#d31d41"
+        },
+        "textContent": "React Counter new"
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T08:02:24.835Z",
+    "updatedAt": "2025-08-14T08:02:38.920Z"
+  },
+  {
+    "id": "cbbc481c-9a29-4fe1-8001-1d4186512085",
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: '#13a48c'}}>React Counter dsfgsdfg</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "originalCode": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>\n      <h1 style={{color: 'blue'}}>React Counter dsfgsdfg</h1>\n      <p style={{fontSize: '18px'}}>Count: {count}</p>\n      <button \n        onClick={() => setCount(count + 1)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#007bff',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer'\n        }}\n      >\n        Increment\n      </button>\n      <button \n        onClick={() => setCount(0)}\n        style={{\n          padding: '10px 20px',\n          fontSize: '16px',\n          backgroundColor: '#dc3545',\n          color: 'white',\n          border: 'none',\n          borderRadius: '4px',\n          cursor: 'pointer',\n          marginLeft: '10px'\n        }}\n      >\n        Reset\n      </button>\n    </div>\n  );\n}",
+    "properties": {
+      "//div/h1": {
+        "style": {
+          "color": "#13a48c"
+        },
+        "textContent": "React Counter dsfgsdfg"
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T08:03:53.017Z",
+    "updatedAt": "2025-08-14T08:04:07.540Z"
+  },
+  {
+    "id": "153e0eff-7b38-46b8-9120-3f559a1ad8ea",
+    "code": "\n\n/**\n * A simple counter component.\n * It displays a count and a button to increment it.\n */\nfunction SimpleCounter() {\n  // Initialize a state variable 'count' with a default value of 0.\n  // 'setCount' is the function we'll use to update the count.\n  const [count, setCount] = useState(0);\n\n  // This function is called when the button is clicked.\n  const handleIncrement = () => {\n    // We call setCount to update the state.\n    // React will re-render the component with the new count value.\n    setCount(prevCount => prevCount + 1);\n  };\n\n  // Basic styling for the component container.\n  const containerStyle = {\n    fontFamily: 'sans-serif',\n    textAlign: 'center',\n    marginTop: '50px',\n    padding: '20px',\n    border: '1px solid #ddd',\n    borderRadius: '8px',\n    maxWidth: '300px',\n    margin: '50px auto',\n    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',\n  };\n\n  // Styling for the button.\n  const buttonStyle = {\n    padding: '10px 20px',\n    fontSize: '16px',\n    cursor: 'pointer',\n    backgroundColor: '#007bff',\n    color: 'white',\n    border: 'none',\n    borderRadius: '5px',\n    marginTop: '10px',\n  };\n\n  return (\n    <div style={containerStyle}>\n      <h2 style={{color: '#13715a'}}>Simple Counter</h2>\n      <p style={{fontSize: '38px', margin: '20px 0', fontWeight: '800'}}>{count}</p>\n      <button style={{backgroundColor: '#931515', color: '#1c36ba', borderRadius: '10px', fontSize: '12px'}} onClick={handleIncrement} style={buttonStyle}>\n        Increment\n      </button>\n    </div>\n  );\n}\n",
+    "originalCode": "\n\n/**\n * A simple counter component.\n * It displays a count and a button to increment it.\n */\nfunction SimpleCounter() {\n  // Initialize a state variable 'count' with a default value of 0.\n  // 'setCount' is the function we'll use to update the count.\n  const [count, setCount] = useState(0);\n\n  // This function is called when the button is clicked.\n  const handleIncrement = () => {\n    // We call setCount to update the state.\n    // React will re-render the component with the new count value.\n    setCount(prevCount => prevCount + 1);\n  };\n\n  // Basic styling for the component container.\n  const containerStyle = {\n    fontFamily: 'sans-serif',\n    textAlign: 'center',\n    marginTop: '50px',\n    padding: '20px',\n    border: '1px solid #ddd',\n    borderRadius: '8px',\n    maxWidth: '300px',\n    margin: '50px auto',\n    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',\n  };\n\n  // Styling for the button.\n  const buttonStyle = {\n    padding: '10px 20px',\n    fontSize: '16px',\n    cursor: 'pointer',\n    backgroundColor: '#007bff',\n    color: 'white',\n    border: 'none',\n    borderRadius: '5px',\n    marginTop: '10px',\n  };\n\n  return (\n    <div style={containerStyle}>\n      <h2 style={{color: '#13715a'}}>Simple Counter</h2>\n      <p style={{fontSize: '38px', margin: '20px 0', fontWeight: '800'}}>{count}</p>\n      <button style={{backgroundColor: '#931515', color: '#dce925', borderRadius: '10px'}} onClick={handleIncrement} style={buttonStyle}>\n        Increment\n      </button>\n    </div>\n  );\n}\n",
+    "properties": {
+      "//div/h2": {
+        "style": {
+          "color": "#13715a"
+        }
+      },
+      "//div/button": {
+        "style": {
+          "backgroundColor": "#931515",
+          "color": "#1c36ba",
+          "borderRadius": "10px",
+          "fontSize": "12px"
+        }
+      },
+      "//div/p": {
+        "style": {
+          "fontWeight": "800",
+          "fontSize": "38px"
+        }
+      }
+    },
+    "title": "React Component",
+    "description": "Updated with React Live Inspector",
+    "createdAt": "2025-08-14T08:09:35.701Z",
+    "updatedAt": "2025-08-14T08:10:18.589Z"
   }
 ]

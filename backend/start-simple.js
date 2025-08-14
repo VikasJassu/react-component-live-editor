@@ -170,6 +170,69 @@ app.get("/api/components/:id", (req, res) => {
   }
 });
 
+// Update component
+app.put("/api/components/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { code, properties = {}, title, description } = req.body;
+
+    const componentIndex = components.findIndex((c) => c.id === id);
+
+    if (componentIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        error: "Component not found",
+      });
+    }
+
+    const existingComponent = components[componentIndex];
+
+    // Update JSX code with properties if any
+    let updatedCode = code || existingComponent.code;
+    if (Object.keys(properties).length > 0) {
+      try {
+        updatedCode = await jsxUpdater.updateJSXCode(updatedCode, properties);
+        console.log("Code updated successfully during update");
+      } catch (updateError) {
+        console.warn("Failed to update JSX code:", updateError.message);
+        // Continue with original code
+      }
+    }
+
+    // Update the component
+    const updatedComponent = {
+      ...existingComponent,
+      code: updatedCode,
+      originalCode: code || existingComponent.originalCode,
+      properties: properties || existingComponent.properties,
+      title: title || existingComponent.title,
+      description: description || existingComponent.description,
+      updatedAt: new Date().toISOString(),
+    };
+
+    components[componentIndex] = updatedComponent;
+
+    res.json({
+      success: true,
+      data: {
+        id: updatedComponent.id,
+        code: updatedCode,
+        properties: updatedComponent.properties,
+        title: updatedComponent.title,
+        description: updatedComponent.description,
+        createdAt: updatedComponent.createdAt,
+        updatedAt: updatedComponent.updatedAt,
+      },
+    });
+  } catch (error) {
+    console.error("Update error:", error);
+    res.status(500).json({
+      success: false,
+      error: "Internal server error",
+    });
+  }
+});
+
 // List components
 app.get("/api/components", (req, res) => {
   try {

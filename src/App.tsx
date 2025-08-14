@@ -145,21 +145,35 @@ function App() {
   const handleSaveComponent = useCallback(async () => {
     if (!jsxCode.trim()) return;
 
+    const isUpdate = !!savedComponentId;
     setIsSaving(true);
+
     try {
       const propertiesObject: Record<string, ElementProperties> = {};
       elementProperties.forEach((props, path) => {
         propertiesObject[path] = props;
       });
 
-      const response = await apiService.saveComponent({
-        code: jsxCode,
-        properties: propertiesObject,
-        title: "React Component",
-        description: "Created with React Live Inspector",
-      });
+      let response;
 
-      setSavedComponentId(response.id);
+      if (isUpdate) {
+        // Update existing component
+        response = await apiService.updateComponent(savedComponentId, {
+          code: jsxCode,
+          properties: propertiesObject,
+          title: "React Component",
+          description: "Updated with React Live Inspector",
+        });
+      } else {
+        // Create new component
+        response = await apiService.saveComponent({
+          code: jsxCode,
+          properties: propertiesObject,
+          title: "React Component",
+          description: "Created with React Live Inspector",
+        });
+        setSavedComponentId(response.id);
+      }
 
       // Update the JSX code with the backend-processed version
       if (response.code && response.code !== jsxCode) {
@@ -168,15 +182,70 @@ function App() {
         await handlePreview();
       }
 
-      // Show success message (you could add a toast notification here)
-      console.log("Component saved successfully:", response);
+      const newUrl = `?load=${response.id}`; // <-- Adjust path
+      window.history.replaceState(null, "", newUrl);
+
+      // Show success message
+      console.log(
+        `Component ${isUpdate ? "updated" : "saved"} successfully:`,
+        response
+      );
     } catch (error) {
-      console.error("Failed to save component:", error);
-      // Show error message (you could add a toast notification here)
+      console.error(
+        `Failed to ${isUpdate ? "update" : "save"} component:`,
+        error
+      );
     } finally {
       setIsSaving(false);
     }
-  }, [jsxCode, elementProperties, handlePreview]);
+  }, [jsxCode, elementProperties, handlePreview, savedComponentId]);
+
+  const handleNewComponent = useCallback(() => {
+    window.history.replaceState(null, "", "/");
+    setSavedComponentId(null);
+    setElementProperties(new Map());
+    setSelectedElement(null);
+    setJsxCode(`function Counter() {
+  const [count, setCount] = React.useState(0);
+  
+  return (
+    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>
+      <h1 style={{color: 'blue'}}>React Counter</h1>
+      <p style={{fontSize: '18px'}}>Count: {count}</p>
+      <button 
+        onClick={() => setCount(count + 1)}
+        style={{
+          padding: '10px 20px',
+          fontSize: '16px',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer'
+        }}
+      >
+        Increment
+      </button>
+      <button 
+        onClick={() => setCount(0)}
+        style={{
+          padding: '10px 20px',
+          fontSize: '16px',
+          backgroundColor: '#dc3545',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          marginLeft: '10px'
+        }}
+      >
+        Reset
+      </button>
+    </div>
+  );
+}`);
+    handlePreview();
+  }, [handlePreview]);
 
   const handleLoadComponent = useCallback(
     async (id: string) => {
@@ -232,20 +301,41 @@ function App() {
             <p>
               Paste JSX or React components, see them render, click to inspect
               and edit properties
+              {savedComponentId && (
+                <span className="editing-indicator">
+                  {" "}
+                  • Editing saved component
+                </span>
+              )}
             </p>
           </div>
           <div className="header-actions">
+            {savedComponentId && (
+              <button
+                className="new-button"
+                onClick={handleNewComponent}
+                disabled={isSaving}
+              >
+                New Component
+              </button>
+            )}
             <button
               className="save-button"
               onClick={handleSaveComponent}
               disabled={isSaving || !jsxCode.trim()}
             >
-              {isSaving ? "Saving..." : "Save Component"}
+              {isSaving
+                ? savedComponentId
+                  ? "Updating..."
+                  : "Saving..."
+                : savedComponentId
+                ? "Update Component"
+                : "Save Component"}
             </button>
             {savedComponentId && (
               <div className="saved-info">
                 <span>✅ Saved</span>
-                <button
+                {/* <button
                   className="share-button"
                   onClick={() => {
                     const shareUrl = `${window.location.origin}?load=${savedComponentId}`;
@@ -254,7 +344,7 @@ function App() {
                   }}
                 >
                   Copy Share Link
-                </button>
+                </button> */}
               </div>
             )}
           </div>

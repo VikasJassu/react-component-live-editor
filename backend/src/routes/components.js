@@ -199,8 +199,38 @@ router.put(
         });
       }
 
+      // Update JSX code with properties if provided
+      let updatedCode = updates.code || existingComponent.code;
+      if (updates.properties && Object.keys(updates.properties).length > 0) {
+        try {
+          // Convert properties to XPath-based updates
+          const xpathUpdates = {};
+          for (const [pathKey, props] of Object.entries(updates.properties)) {
+            // If pathKey looks like an XPath, use it directly
+            if (pathKey.startsWith("//") || pathKey.includes("/")) {
+              xpathUpdates[pathKey] = props;
+            }
+          }
+
+          if (Object.keys(xpathUpdates).length > 0) {
+            updatedCode = await jsxUpdaterService.updateJSXCode(
+              updatedCode,
+              xpathUpdates
+            );
+          }
+        } catch (updateError) {
+          console.warn(
+            "Failed to update JSX code with properties:",
+            updateError.message
+          );
+          // Continue with original code if update fails
+        }
+      }
+
       const updatedComponent = await componentService.update(id, {
         ...updates,
+        code: updatedCode,
+        originalCode: updates.code || existingComponent.originalCode,
         updatedAt: new Date().toISOString(),
       });
 
@@ -208,7 +238,7 @@ router.put(
         success: true,
         data: {
           id: updatedComponent.id,
-          code: updatedComponent.code,
+          code: updatedCode, // Return the updated code
           properties: updatedComponent.properties,
           title: updatedComponent.title,
           description: updatedComponent.description,
