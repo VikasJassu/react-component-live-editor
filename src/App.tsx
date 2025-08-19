@@ -37,9 +37,7 @@ const initialComponent = `const BlogPost = () => {
           <span> • Aug 19, 2025</span>
         </p>
       </div>
-
-      <div style={{ color: "#222", fontSize: 18 }}>
-        <p style={{ marginTop: 0 }}>
+       <p style={{ marginTop: 0 }}>
           Simplicity in design isn’t about removing features—it’s about revealing
           intent. Start by identifying the primary task, reduce visual noise, and
           use spacing and typography to guide attention. Thoughtful defaults,
@@ -48,7 +46,6 @@ const initialComponent = `const BlogPost = () => {
           friction, communicate hierarchy, and ship interfaces that feel calm,
           useful, and enjoyable.
         </p>
-      </div>
     </div>
   );
 };
