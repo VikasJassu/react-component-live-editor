@@ -38,6 +38,9 @@ class SimpleJSXUpdater {
    * Apply property updates to JSX code
    */
   applyUpdatesToCode(code, xpath, properties) {
+    console.log(`\n=== Applying updates for XPath: ${xpath} ===`);
+    console.log("Properties:", properties);
+
     // Convert XPath to element targeting
     const elementInfo = this.parseXPath(xpath);
 
@@ -46,22 +49,57 @@ class SimpleJSXUpdater {
       return code;
     }
 
+    console.log("Parsed element info:", elementInfo);
+
     let updatedCode = code;
 
     // Update style properties first
     if (properties.style) {
+      console.log("Finding target element for style update...");
       const targetElement = this.findElementByPath(updatedCode, elementInfo);
+
       if (targetElement) {
+        console.log("Target element found:", {
+          tag: targetElement.tag,
+          startIndex: targetElement.startIndex,
+          endIndex: targetElement.endIndex,
+          hasAttributes: !!targetElement.attributes,
+        });
+
+        const beforeUpdate = updatedCode;
         updatedCode = this.updateStyleProperties(
           updatedCode,
           targetElement,
           properties.style
         );
+
+        console.log(
+          "Style update completed. Code changed:",
+          beforeUpdate !== updatedCode
+        );
+        if (beforeUpdate === updatedCode) {
+          console.warn("WARNING: Code was not modified by style update!");
+        }
+      } else {
+        console.warn(`No target element found for XPath: ${xpath}`);
+
+        // Fallback to simple targeting for backward compatibility
+        console.log("Trying fallback simple targeting...");
+        const fallbackResult = this.fallbackSimpleUpdate(
+          updatedCode,
+          xpath,
+          properties.style
+        );
+        if (fallbackResult !== updatedCode) {
+          console.log("Fallback update succeeded");
+          updatedCode = fallbackResult;
+        }
       }
     }
 
     // Update text content second (re-find element after style changes)
     if (properties.textContent !== undefined) {
+      console.log("Finding target element for text content update...");
       const targetElement = this.findElementByPath(updatedCode, elementInfo);
       if (targetElement) {
         updatedCode = this.updateTextContent(
@@ -72,6 +110,7 @@ class SimpleJSXUpdater {
       }
     }
 
+    console.log(`=== Finished updates for XPath: ${xpath} ===\n`);
     return updatedCode;
   }
 
@@ -155,6 +194,7 @@ class SimpleJSXUpdater {
         // Parse the complete opening tag for non-self-closing tags
         let fullMatch = match[0];
         let fullAttributes = attributes;
+        let actualEndIndex = endIndex;
 
         if (!isSelfClosing) {
           // Use the robust parsing for complex attributes
@@ -162,6 +202,7 @@ class SimpleJSXUpdater {
           if (robustMatch) {
             fullMatch = robustMatch.fullMatch;
             fullAttributes = robustMatch.attributes;
+            actualEndIndex = robustMatch.endIndex;
           }
         }
 
@@ -169,11 +210,7 @@ class SimpleJSXUpdater {
           tag: tagName,
           attributes: fullAttributes,
           startIndex: startIndex,
-          endIndex: isSelfClosing
-            ? endIndex
-            : robustMatch
-            ? robustMatch.endIndex
-            : endIndex,
+          endIndex: actualEndIndex,
           fullMatch: fullMatch,
           path: [...stack.map((s) => s.tag), tagName],
           depth: stack.length,
@@ -369,12 +406,62 @@ class SimpleJSXUpdater {
   }
 
   /**
+   * Fallback simple update for backward compatibility
+   */
+  fallbackSimpleUpdate(code, xpath, styleUpdates) {
+    try {
+      // Extract just the tag name from xpath for simple matching
+      const tagMatch = xpath.match(/\/\/(\w+)(?:\/.*)?$/);
+      if (!tagMatch) return code;
+
+      const tag = tagMatch[1];
+      console.log(`Fallback: Looking for tag "${tag}"`);
+
+      // Simple regex to find the first occurrence of the tag
+      const tagPattern = new RegExp(`<${tag}([\\s\\S]*?)>`, "i");
+      const match = tagPattern.exec(code);
+
+      if (!match) {
+        console.log(`Fallback: No match found for tag "${tag}"`);
+        return code;
+      }
+
+      const fullMatch = match[0];
+      const attributes = match[1];
+      const startIndex = match.index;
+      const endIndex = match.index + fullMatch.length;
+
+      console.log(`Fallback: Found element at ${startIndex}-${endIndex}`);
+
+      // Create a simple target element
+      const targetElement = {
+        tag: tag,
+        attributes: attributes,
+        startIndex: startIndex,
+        endIndex: endIndex,
+        fullMatch: fullMatch,
+      };
+
+      return this.updateStyleProperties(code, targetElement, styleUpdates);
+    } catch (error) {
+      console.error("Fallback update failed:", error);
+      return code;
+    }
+  }
+
+  /**
    * Update style properties in JSX element
    */
   updateStyleProperties(code, targetElement, styleUpdates) {
-    const { attributes, startIndex, endIndex } = targetElement;
+    if (!targetElement) {
+      console.warn("No target element provided");
+      return code;
+    }
 
-    console.log("Target element attributes:", attributes);
+    const { attributes, startIndex, endIndex, fullMatch, tag } = targetElement;
+
+    console.log("Target element:", { tag, startIndex, endIndex, attributes });
+    console.log("Style updates:", styleUpdates);
 
     // Use robust style extraction
     const styleInfo = this.extractStyleAttribute(attributes);
@@ -408,11 +495,22 @@ class SimpleJSXUpdater {
         : ` style={{${newStyleString}}}`;
     }
 
+    // Create the new element
+    const newElement = `<${tag}${newAttributes}>`;
+    console.log("Original element:", fullMatch || `<${tag}${attributes}>`);
+    console.log("New element:", newElement);
+
     // Replace the element in the code
-    const newElement = `<${targetElement.tag}${newAttributes}>`;
-    return (
-      code.substring(0, startIndex) + newElement + code.substring(endIndex)
-    );
+    const updatedCode =
+      code.substring(0, startIndex) + newElement + code.substring(endIndex);
+
+    console.log("Code replacement:");
+    console.log("- Start index:", startIndex);
+    console.log("- End index:", endIndex);
+    console.log("- Original length:", code.length);
+    console.log("- Updated length:", updatedCode.length);
+
+    return updatedCode;
   }
 
   /**
