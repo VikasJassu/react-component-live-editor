@@ -8,45 +8,52 @@ import "./App.css";
 import type { CompilationError, ElementPath, ElementProperties } from "./types";
 
 function App() {
-  const [jsxCode, setJsxCode] = useState<string>(`function Counter() {
-  const [count, setCount] = React.useState(0);
-  
+  const [jsxCode, setJsxCode] = useState<string>(`const BlogPost = () => {
   return (
-    <div style={{padding: '20px', fontFamily: 'Arial, sans-serif'}}>
-      <h1 style={{color: 'blue'}}>React Counter</h1>
-      <p style={{fontSize: '18px'}}>Count: {count}</p>
-      <button 
-        onClick={() => setCount(count + 1)}
-        style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          backgroundColor: '#007bff',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-      >
-        Increment
-      </button>
-      <button 
-        onClick={() => setCount(0)}
-        style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          backgroundColor: '#dc3545',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          marginLeft: '10px'
-        }}
-      >
-        Reset
-      </button>
-    </div>
+    <article
+      style={{
+        maxWidth: 720,
+        margin: "40px auto",
+        padding: "24px",
+        borderRadius: 12,
+        border: "1px solid #ececec",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
+        background: "#fff",
+        fontFamily:
+          "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+        lineHeight: 1.6,
+      }}
+    >
+      <header style={{ marginBottom: 16 }}>
+        <h1 style={{ margin: 0, fontSize: 32, lineHeight: 1.25 }}>
+          Designing Simple Interfaces
+        </h1>
+
+        <p style={{ margin: "6px 0 0", color: "#555" }}>
+          Why clarity beats complexity in everyday products
+        </p>
+
+        <div style={{ marginTop: 10, color: "#777", fontSize: 14 }}>
+          <span>By Priya Sharma</span>
+          <span> • Aug 19, 2025</span>
+        </div>
+      </header>
+
+      <section style={{ color: "#222", fontSize: 18 }}>
+        <p style={{ marginTop: 0 }}>
+          Simplicity in design isn’t about removing features—it’s about revealing
+          intent. Start by identifying the primary task, reduce visual noise, and
+          use spacing and typography to guide attention. Thoughtful defaults,
+          clear labels, and consistent patterns help users feel confident and
+          move faster. In this short post, we’ll explore practical ways to trim
+          friction, communicate hierarchy, and ship interfaces that feel calm,
+          useful, and enjoyable.
+        </p>
+      </section>
+    </article>
   );
-}`);
+};
+`);
   const [compiledComponent, setCompiledComponent] =
     useState<React.ComponentType | null>(null);
   const [selectedElement, setSelectedElement] = useState<ElementPath | null>(
